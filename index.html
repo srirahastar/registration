@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Registration Form</title>
+	<link rel="stylesheet" type="text/css" href="pup.css">
+	<script src="JScript.js"></script>
+
+
+
+</head>
+<body>
+	<h1>Registration</h1>
+	<form >
+	<div class="container" data-bind="nextFieldOnEnter:true">
+		<!-- //Label for FCS Numer -->
+		<div class="row">
+    		<div class="col-25">
+      		<label for="fcsno">FCS No</label>
+    		</div>
+    		<div class="col-75">
+      		<input type="text" id="fcsno" tabindex=1 name="fcsno" maxlength="4" placeholder="FCS No...">
+    		</div>
+  		</div>
+		<!-- //Label for Benefierary Name -->
+		<div class="row">
+    		<div class="col-25">
+      		<label for="fcsname">Benefierary Name</label>
+    		</div>
+    		<div class="col-75">
+      		<input type="text" id="fcsname" tabindex=2 name="fcsname" placeholder="Benefierary Name..">
+    		</div>
+  		</div>
+
+		<div class="row">
+    		<div class="col-25">
+      		<label for="fcsfname">Father's Name</label>
+    		</div>
+    		<div class="col-75">
+      		<input type="text" id="fcsfname" name="fcsfname" placeholder="Fathers Name..">
+    		</div>
+  		</div>
+
+		<div class="row">
+    		<div class="col-25">
+      		<label for="gender">Benefierary Name</label>
+    		</div>
+    		<div class="col-75">
+      			<select id="gender" name="gender">
+        			<option value="male">Male</option>
+        			<option value="female">Female</option>
+        			<option value="others">Others</option>
+      			</select>
+    		</div>
+  		</div>
+
+		<div class="row">
+    		<div class="col-25">
+      		<label for="mstatus">Benefierary Name</label>
+    		</div>
+    		<div class="col-75">
+      			<select id="mstatus" name="mstatus">
+        			<option value="married">Married</option>
+        			<option value="unmarried">Unmarried</option>
+        		</select>
+    		</div>
+  		</div>
+		
+
+		<div class="row">
+    		<div class="col-25">
+      		<label for="dateofbirth">Date of Birth</label>
+    		</div>
+    		<div class="col-75">
+ <!--      			<input type="year" data-format="'Ends at' MMM dd yyyy" id="dateofbirth" name="dateofbirth">
+  -->     	<select>
+  				<option>Select Year</option>
+  				<?php foreach($years as $year) : ?>
+    			<option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+  				<?php endforeach; ?>
+			</select>
+    		</div>
+  		</div>	
+
+		<div class="row">
+    		<div class="col-25">
+      		<label for="fwb">FWB Number</label>
+    		</div>
+    		<div class="col-75">
+      		<input type="text" id="fwb" name="fwb" maxlength="6" placeholder="FWB Number.." >
+    		</div>
+  		</div>
+
+		<div class="row">
+    		<div class="col-25">
+      		<label for="fcsaadhar">AADHAR</label>
+    		</div>
+    		<div class="col-75">
+      		<input type="text" id="fcsaadhar" name="fcsaadhar" maxlength="15" placeholder="AADHAR Number..">
+    		</div>
+  		</div>
+
+  		<div class="row">
+    		<div class="col-25">
+      		<label for="fcsration">SMART CARD</label>
+    		</div>
+    		<div class="col-75">
+      		<input type="text" id="fcsration" name="fcsration" maxlength="12" placeholder="RATION CARD..">
+    		</div>
+  		</div>
+
+		<div class="row">
+    		<div class="col-25">
+      		<label for="fcsbio">BIOMETRIC NO.</label>
+    		</div>
+    		<div class="col-75">
+      		<input type="text" id="fcsbio" name="fcsbio" placeholder="Biometric no...">
+    		</div>
+  		</div>
+
+  		<div class="row">
+    		<div class="col-25">
+      		<label>BANK DETAILS</label>
+    		</div>
+    		<div class="col-75">
+    		<fieldset id="bankdetails">
+      		<input type="text" id="fcsbname" name="fcsbname" placeholder="Bank Name..">
+      		<input type="text" id="fcsbbrach" name="fcsbbrach" placeholder="Branch Name..">
+      		<input type="text" id="fcsacc" name="fcsacc" maxlength="15" placeholder="A/c Number eg: 000000000000000">
+      		<input type="text" id="fcsifsc" name="fcsifsc" maxlength="11" placeholder="IFSC..." onkeyup="this.value = this.value.toUpperCase();">
+      		</fieldset>
+    		</div>
+  		</div>
+
+  		<div class="row">
+    		<div class="col-25">
+      		<label>ADDRESS</label>
+    		</div>
+    		<div class="col-75">
+    		<fieldset id="address">
+      		<input type="text" id="door" name="door" placeholder="Door No..">
+      		<input type="text" id="street" name="street" placeholder="Street and land mark...">
+      		<input type="text" id="city" name="city" placeholder="City....">
+      		<input type="text" id="district" name="district" placeholder="District...">
+      		<input type="text" id="state"  name="state" placeholder="State and Country...">
+      		<input type="text" id="pin" name="pin" maxlength="6" placeholder="PIN code">
+      		</fieldset>
+    		</div>
+  		</div>
+  	</div>
+  	<div class="container1">
+  		<div class="center">
+  			<button type="Submit" class="button button2">Submit</button>
+  			<button type="Reset" class="button button2">Reset</button>
+  		</div>
+  	</div>
+	</form>
+
+<script>
+    ko.bindingHandlers.nextFieldOnEnter = {
+        init: function(element, valueAccessor, allBindingsAccessor) {
+            $(element).on('keydown', 'input, select', function (e) {
+                var self = $(this)
+                , form = $(element)
+                  , focusable
+                  , next
+                ;
+                if (e.keyCode == 13) {
+                    focusable = form.find('input,a,select,button,textarea').filter(':visible');
+                    var nextIndex = focusable.index(this) == focusable.length -1 ? 0 : focusable.index(this) + 1;
+                    next = focusable.eq(nextIndex);
+                    next.focus();
+                    return false;
+                }
+            });
+        }
+    };
+
+    ko.applyBindings({});
+    </script>
+ 
+</body>
+</html>
